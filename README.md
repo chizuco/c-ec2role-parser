@@ -18,6 +18,11 @@ $ curl -s http://169.254.169.254/latest/meta-data/iam/security-credentials/tmpro
 }
 ```
 
+# Requirements
+
+* json-c ( just `yum install json-c json-c-devel`)
+
+
 # Usage
 
 # LISCENCE
