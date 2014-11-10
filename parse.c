@@ -76,7 +76,9 @@ int main(int argc, char ** argv)
     }
 
     char *content = file_get_contents(argv[1]);
-    //printf("%s", content);
+    if (content == NULL) {
+        return 1;
+    }
 
 
     struct Credential crd;
