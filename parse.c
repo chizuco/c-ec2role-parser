@@ -53,9 +53,12 @@ void free_credential(struct Credential *crd)
     crd->secretaccesskey = NULL;
 }
 
-void parse_credential(const char *json_string, struct Credential *crd)
+int parse_credential(const char *json_string, struct Credential *crd)
 {
     struct json_object *obj = json_tokener_parse(json_string);
+    if (is_error(obj)) {
+        return -1;
+    }
 
     json_object_object_foreach(obj, key, val) {
         if (strcmp(key, "AccessKeyId") == 0) {
@@ -66,6 +69,8 @@ void parse_credential(const char *json_string, struct Credential *crd)
             crd->token = json_object_get_string(val);
         }
     }
+
+    return 0;
 }
 
 int main(int argc, char ** argv)
@@ -82,7 +87,10 @@ int main(int argc, char ** argv)
 
 
     struct Credential crd;
-    parse_credential(content, &crd);
+    if (parse_credential(content, &crd) == -1) {
+        fprintf(stderr, "unable to parse string as json\n");
+        return 1;
+    }
 
     printf("%s\n", crd.accesskeyid);
     printf("%s\n", crd.secretaccesskey);
