@@ -59,11 +59,11 @@ void parse_credential(const char *json_string, struct Credential *crd)
 
     json_object_object_foreach(obj, key, val) {
         if (strcmp(key, "AccessKeyId") == 0) {
-            crd->accesskeyid = json_object_to_json_string(val);
+            crd->accesskeyid = json_object_get_string(val);
         } else if (strcmp(key, "SecretAccessKey") == 0) {
-            crd->secretaccesskey = json_object_to_json_string(val);
+            crd->secretaccesskey = json_object_get_string(val);
         } else if (strcmp(key, "Token") == 0) {
-            crd->token = json_object_to_json_string(val);
+            crd->token = json_object_get_string(val);
         }
     }
 }
