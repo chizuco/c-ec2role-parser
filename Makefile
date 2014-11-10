@@ -1,6 +1,10 @@
 
-parse:	parse.c
-	gcc parse.c -o parse -ljson-c
+parse:	main.o parse.o
+	 gcc main.o parse.o -o parse -ljson-c
+
+main.o: main.c
+parse.o: parse.c
 
 clean:
-	rm parse
+	rm -f parse
+	rm -f main.o parse.o
