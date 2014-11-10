@@ -2,7 +2,7 @@
 
 Parser for security credentials of IAM for EC2 Role
 
-This tool use (json-c)[https://github.com/json-c/json-c] as json parse.
+This tool use [json-c](https://github.com/json-c/json-c) as json parse.
 
 # DESCRIPTIONS
 
