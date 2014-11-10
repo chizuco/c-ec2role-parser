@@ -40,14 +40,14 @@ int main(int argc, char ** argv)
         return 1;
     }
 
-    char *content = file_get_contents(argv[1]);
-    if (content == NULL) {
+    char *json_string = file_get_contents(argv[1]);
+    if (json_string == NULL) {
         return 1;
     }
 
 
     struct Credential crd;
-    if (parse_credential_json(content, &crd) == -1) {
+    if (parse_credential_json(json_string, &crd) == -1) {
         fprintf(stderr, "unable to parse string as json\n");
         return 1;
     }
@@ -57,7 +57,7 @@ int main(int argc, char ** argv)
     printf("%s\n", crd.token);
 
     free_credential(&crd);
-    free(content);
+    free(json_string);
 
     return 0;
 }
