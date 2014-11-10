@@ -60,15 +60,24 @@ int parse_credential(const char *json_string, struct Credential *crd)
         return -1;
     }
 
-    json_object_object_foreach(obj, key, val) {
-        if (strcmp(key, "AccessKeyId") == 0) {
-            crd->accesskeyid = json_object_get_string(val);
-        } else if (strcmp(key, "SecretAccessKey") == 0) {
-            crd->secretaccesskey = json_object_get_string(val);
-        } else if (strcmp(key, "Token") == 0) {
-            crd->token = json_object_get_string(val);
-        }
+    struct json_object *val_id = json_object_object_get(obj, "AccessKeyId");
+    if (is_error(val_id)) {
+        return -1;
     }
+
+    struct json_object *val_secret = json_object_object_get(obj, "SecretAccessKey");
+    if (is_error(val_secret)) {
+        return -1;
+    }
+
+    struct json_object *val_token = json_object_object_get(obj, "Token");
+    if (is_error(val_token)) {
+        return -1;
+    }
+
+    crd->accesskeyid = json_object_get_string(val_id);
+    crd->secretaccesskey = json_object_get_string(val_secret);
+    crd->token = json_object_get_string(val_token);
 
     return 0;
 }
