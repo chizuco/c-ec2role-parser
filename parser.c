@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <json-c/json.h>
-#include "parse.h"
+#include "parser.h"
 
 char *file_get_contents(const char *filename)
 {
