@@ -5,6 +5,7 @@ parse:	main.o parser.o
 main.o: main.c
 parser.o: parser.c
 
+.PHONY: clean
 clean:
 	rm -f parse
 	rm -f main.o parser.o
