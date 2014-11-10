@@ -11,7 +11,7 @@ void free_credential(struct Credential *crd)
     crd->secretaccesskey = NULL;
 }
 
-int parse_credential(const char *json_string, struct Credential *crd)
+int parse_credential_json(const char *json_string, struct Credential *crd)
 {
     struct json_object *obj = json_tokener_parse(json_string);
     if (is_error(obj)) {

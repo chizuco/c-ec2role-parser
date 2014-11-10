@@ -47,7 +47,7 @@ int main(int argc, char ** argv)
 
 
     struct Credential crd;
-    if (parse_credential(content, &crd) == -1) {
+    if (parse_credential_json(content, &crd) == -1) {
         fprintf(stderr, "unable to parse string as json\n");
         return 1;
     }
