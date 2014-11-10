@@ -42,6 +42,14 @@ char *file_get_contents(const char *filename)
 }
 
 
+void free_credential(struct Credential *crd)
+{
+    free((void *)crd->accesskeyid);
+    free((void *)crd->token);
+    free((void *)crd->secretaccesskey);
+}
+
+
 int main(int argc, char ** argv)
 {
     if (argc < 2) {
@@ -69,7 +77,7 @@ int main(int argc, char ** argv)
     printf("%s\n", crd.accesskeyid);
     printf("%s\n", crd.secretaccesskey);
     printf("%s\n", crd.token);
-
     free(content);
+    free_credential(&crd);
     return 0;
 }
