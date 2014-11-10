@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <sys/stat.h>
 #include <stdlib.h>
+#include <string.h>
 
 char *file_get_contents(const char *filename)
 {
