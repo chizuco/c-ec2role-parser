@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/stat.h>
-#include "credential_parser.h"
+#include "aws_credential.h"
 
 char *file_get_contents(const char *filename)
 {

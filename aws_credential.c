@@ -1,4 +1,4 @@
-#include "credential_parser.h"
+#include "aws_credential.h"
 
 void free_credential(struct Credential *crd)
 {
