@@ -2,6 +2,15 @@
 #include <sys/stat.h>
 #include <stdlib.h>
 #include <string.h>
+#include <json-c/json.h>
+
+struct Credential
+{
+    const char *accesskeyid;
+    const char *token;
+    const char *secretaccesskey;
+};
+
 
 char *file_get_contents(const char *filename)
 {
@@ -42,6 +51,24 @@ int main(int argc, char ** argv)
 
     char *content = file_get_contents(argv[1]);
     printf("%s", content);
+
+    struct Credential crd;
+
+    struct json_object *obj = json_tokener_parse(content);
+
+    json_object_object_foreach(obj, key, val) {
+        if (strcmp(key, "AccessKeyId") == 0) {
+            crd.accesskeyid = json_object_to_json_string(val);
+        } else if (strcmp(key, "SecretAccessKey") == 0) {
+            crd.secretaccesskey = json_object_to_json_string(val);
+        } else if (strcmp(key, "Token") == 0) {
+            crd.token = json_object_to_json_string(val);
+        }
+    }
+
+    printf("%s\n", crd.accesskeyid);
+    printf("%s\n", crd.secretaccesskey);
+    printf("%s\n", crd.token);
 
     free(content);
     return 0;
