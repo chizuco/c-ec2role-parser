@@ -8,3 +8,7 @@ parser.o: parser.c
 clean:
 	rm -f parse
 	rm -f main.o parser.o
+
+.PHONY: test
+test:
+	test/test.sh
