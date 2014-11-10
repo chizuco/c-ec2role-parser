@@ -1,4 +1,3 @@
-#include <json-c/json.h>
 #include "parser.h"
 
 void free_credential(struct Credential *crd)

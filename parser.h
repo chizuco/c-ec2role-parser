@@ -1,3 +1,5 @@
+#include <json-c/json.h>
+
 struct Credential
 {
     const char *accesskeyid;
