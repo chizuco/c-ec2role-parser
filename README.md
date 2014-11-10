@@ -28,10 +28,11 @@ $ curl -s http://169.254.169.254/latest/meta-data/iam/security-credentials/tmpro
 
 # INSTALLATION
 
-just make
+run `make`
 
-`make`
+# Test
 
+run `make test`
 
 # Usage
 
