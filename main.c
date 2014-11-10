@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/stat.h>
-#include "parser.h"
+#include "credential_parser.h"
 
 char *file_get_contents(const char *filename)
 {

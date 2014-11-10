@@ -1,4 +1,4 @@
-#include "parser.h"
+#include "credential_parser.h"
 
 void free_credential(struct Credential *crd)
 {
