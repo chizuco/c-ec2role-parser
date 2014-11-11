@@ -1,5 +1,9 @@
 #include <json-c/json.h>
-
+/**
+ * struct to store AWS STS Credential
+ *
+ * see http://docs.aws.amazon.com/STS/latest/UsingSTS/Welcome.html
+ */
 struct Credential
 {
     const char *accesskeyid;
