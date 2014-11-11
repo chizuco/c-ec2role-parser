@@ -1,3 +1,6 @@
+/**
+ * parse json_string as store data into struct Credential
+ */
 #include "aws_credential.h"
 
 void free_credential(struct Credential *crd)
