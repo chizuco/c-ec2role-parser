@@ -21,18 +21,18 @@ int parse_credential_json(const char *json_string, struct Credential *crd)
         return -1;
     }
 
-    struct json_object *val_id = json_object_object_get(obj, "AccessKeyId");
-    if (is_error(val_id)) {
+    struct json_object *val_id = NULL;
+    if (!json_object_object_get_ex(obj, "AccessKeyId", &val_id)) {
         return -1;
     }
 
-    struct json_object *val_secret = json_object_object_get(obj, "SecretAccessKey");
-    if (is_error(val_secret)) {
+    struct json_object *val_secret = NULL;
+    if (!json_object_object_get_ex(obj, "SecretAccessKey", &val_secret)) {
         return -1;
     }
 
-    struct json_object *val_token = json_object_object_get(obj, "Token");
-    if (is_error(val_token)) {
+    struct json_object *val_token = NULL;
+    if (!json_object_object_get_ex(obj, "Token", &val_token)) {
         return -1;
     }
 
