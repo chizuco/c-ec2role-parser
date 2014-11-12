@@ -1,3 +1,4 @@
+CFLAGS=-Wall
 
 parse:	main.o ec2role_parser.o
 	 gcc main.o ec2role_parser.o -o parse -ljson-c
