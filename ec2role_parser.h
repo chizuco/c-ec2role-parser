@@ -7,8 +7,8 @@
 struct Credential
 {
     const char *accesskeyid;
-    const char *token;
     const char *secretaccesskey;
+    const char *token;
 };
 
 void free_credential(struct Credential *crd);
